@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Large original source images (kept locally as backups, not needed to deploy).
+# Remove this line if you want the full-resolution originals tracked in git too.
+images/_original/
+
+# Editors / OS
+Thumbs.db
+*.swp
+.vscode/
+.idea/

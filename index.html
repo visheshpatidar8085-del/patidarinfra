@@ -192,6 +192,7 @@ nav ul{display:flex;align-items:center;gap:34px;list-style:none}
 .hero h1{margin:22px 0 24px}
 .hero h1 em{font-style:italic;color:var(--gold);font-weight:500}
 .hero .lead{font-size:clamp(1.02rem,1.5vw,1.18rem);max-width:46ch}
+.hero .lead-sm{display:none}
 .hero-cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:38px}
 .scroll-ind{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--muted);font-size:.62rem;letter-spacing:.28em;text-transform:uppercase}
 .scroll-ind .mouse{width:22px;height:36px;border:1.5px solid var(--border);border-radius:12px;position:relative}
@@ -439,8 +440,14 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   .form-row{grid-template-columns:1fr}
 }
 @media(max-width:520px){
-  .hero-cta{flex-direction:column;align-items:stretch}
-  .hero-cta .btn{width:100%;justify-content:center}
+  /* Hero declutter: eyebrow on one line, shorter copy, one primary CTA + text link */
+  .hero .eyebrow{font-size:.6rem;letter-spacing:.16em}
+  .hero .lead-full{display:none}
+  .hero .lead-sm{display:block}
+  .hero-cta{flex-direction:column;align-items:stretch;gap:6px;margin-top:30px}
+  .hero-cta .btn-primary{width:100%;justify-content:center}
+  .hero-cta .btn-ghost{width:auto;align-self:center;min-height:auto;padding:12px 10px;border:none;background:none;color:var(--gold)}
+  .hero-cta .btn-ghost:hover{transform:none;border:none;color:var(--gold-bright)}
 }
 @media(max-width:440px){
   .svc-grid{grid-template-columns:1fr}
@@ -576,7 +583,8 @@ body::after{content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;o
     <div class="wrap hero-inner">
       <span class="eyebrow">Building Excellence in Indore</span>
       <h1>We Build <em>Timeless</em><br>Spaces. Built<br>Around You.</h1>
-      <p class="lead">At Patidar Infra, we don't just construct buildings — we build trust, relationships, and futures crafted with a deep commitment to quality that stands the test of time.</p>
+      <p class="lead lead-full">At Patidar Infra, we don't just construct buildings — we build trust, relationships, and futures crafted with a deep commitment to quality that stands the test of time.</p>
+      <p class="lead lead-sm">We build more than homes — we build trust, relationships, and futures that last.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#projects" data-nav="projects">Explore Our Work
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>

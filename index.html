@@ -1351,28 +1351,54 @@ body::after{content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;o
   /* ---------- HANDCRAFTED POINTER INTERACTIONS (skip if reduced-motion / touch) ---------- */
   var fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
   if(!reduce && fine){
-    /* Magnetic primary buttons + brand mark */
+    /* Magnetic primary buttons + brand mark — rAF + easing, tracks the cursor with no lag */
     document.querySelectorAll('.btn-primary, .brand-mark').forEach(function(el){
+      var raf=null, cx=0, cy=0, tx=0, ty=0, active=false;
+      function frame(){
+        cx += (tx-cx)*0.2; cy += (ty-cy)*0.2;
+        el.style.transform = 'translate('+cx.toFixed(2)+'px,'+cy.toFixed(2)+'px)';
+        if(active || Math.abs(tx-cx)>0.1 || Math.abs(ty-cy)>0.1){ raf=requestAnimationFrame(frame); } else { raf=null; }
+      }
+      el.addEventListener('mouseenter',function(){ active=true; el.style.transition='none'; if(!raf) raf=requestAnimationFrame(frame); });
       el.addEventListener('mousemove',function(e){
         var b=el.getBoundingClientRect();
-        var x=(e.clientX-b.left-b.width/2)/(b.width/2);
-        var y=(e.clientY-b.top-b.height/2)/(b.height/2);
-        el.style.transform='translate('+(x*7).toFixed(1)+'px,'+(y*5-2).toFixed(1)+'px)';
+        tx=((e.clientX-b.left)/b.width-0.5)*12; ty=((e.clientY-b.top)/b.height-0.5)*8-2;
+        if(!raf) raf=requestAnimationFrame(frame);
       });
-      el.addEventListener('mouseleave',function(){ el.style.transform=''; });
+      el.addEventListener('mouseleave',function(){
+        active=false; tx=0; ty=0;
+        if(raf){ cancelAnimationFrame(raf); raf=null; }
+        el.style.transition='transform .4s var(--ease-lux)'; el.style.transform='';
+      });
     });
-    /* Cursor-driven 3D depth on image cards, with counter-parallax on the photo */
+    /* Cursor-driven 3D depth on image cards + counter-parallax on the photo.
+       rAF-batched with interpolation so it follows the cursor smoothly, not a frame behind.
+       Transitions are disabled while hovering (the base image has a slow 1s transition). */
     document.querySelectorAll('.pcard, .gcard').forEach(function(card){
       var img=card.querySelector('.img-wrap img');
+      var rect=null, raf=null, active=false, cx=0, cy=0, tx=0, ty=0;
+      function frame(){
+        cx += (tx-cx)*0.16; cy += (ty-cy)*0.16;
+        card.style.transform = 'perspective(1100px) rotateY('+cx.toFixed(3)+'deg) rotateX('+cy.toFixed(3)+'deg) translateY(-6px)';
+        if(img) img.style.transform = 'scale(1.06) translate('+(-cx*2.2).toFixed(2)+'px,'+(cy*2.2).toFixed(2)+'px)';
+        if(active || Math.abs(tx-cx)>0.02 || Math.abs(ty-cy)>0.02){ raf=requestAnimationFrame(frame); } else { raf=null; }
+      }
+      card.addEventListener('mouseenter',function(){
+        active=true; rect=card.getBoundingClientRect();
+        card.style.transition='none'; if(img) img.style.transition='none';
+        if(!raf) raf=requestAnimationFrame(frame);
+      });
       card.addEventListener('mousemove',function(e){
-        var b=card.getBoundingClientRect();
-        var x=(e.clientX-b.left)/b.width-0.5, y=(e.clientY-b.top)/b.height-0.5;
-        card.style.transition='transform .12s linear';
-        card.style.transform='perspective(1000px) rotateY('+(x*3.6).toFixed(2)+'deg) rotateX('+(-y*3.6).toFixed(2)+'deg) translateY(-4px)';
-        if(img) img.style.transform='scale(1.08) translate('+(-x*9).toFixed(1)+'px,'+(-y*9).toFixed(1)+'px)';
+        if(!rect) rect=card.getBoundingClientRect();
+        tx=((e.clientX-rect.left)/rect.width-0.5)*3.4;
+        ty=-((e.clientY-rect.top)/rect.height-0.5)*3.4;
+        if(!raf) raf=requestAnimationFrame(frame);
       });
       card.addEventListener('mouseleave',function(){
-        card.style.transition='transform .55s var(--ease-lux)';
+        active=false; tx=0; ty=0; rect=null;
+        if(raf){ cancelAnimationFrame(raf); raf=null; }
+        card.style.transition='transform .5s var(--ease-lux)';
+        if(img) img.style.transition='transform .5s var(--ease-lux)';
         card.style.transform=''; if(img) img.style.transform='';
       });
     });

@@ -57,10 +57,10 @@
    swap to a matching stock photo so nothing ever looks broken. Drop the real
    files into images/ and they win automatically. */
 window.STOCK={
-  'images/crown-pearl.jpg?v=2':'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80',
+  'images/crown-pearl.jpg':'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80',
   'images/villa-modern.jpg':'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=80',
   'images/villa-corner.jpg':'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80',
-  'images/villa-slats.jpg?v=2':'https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1400&q=80',
+  'images/villa-slats.jpg':'https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1400&q=80',
   'images/house-27.jpg':'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1400&q=80',
   'images/modern-villa.jpg':'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80'
 };
@@ -657,7 +657,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;o
       </div>
       <div class="feat-grid reveal" style="margin-top:44px">
         <a class="pcard tall" href="#projects" data-nav="projects">
-          <div class="img-wrap"><img src="images/crown-pearl.jpg?v=2" alt="Crown Pearl apartments" loading="lazy" onerror="imgFallback(this)"></div>
+          <div class="img-wrap"><img src="images/crown-pearl.jpg" alt="Crown Pearl apartments" loading="lazy" onerror="imgFallback(this)"></div>
           <div class="pcard-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></div>
           <div class="pcard-body">
             <div class="pcard-tag">Commercial</div>
@@ -666,12 +666,12 @@ body::after{content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;o
           </div>
         </a>
         <a class="pcard" href="#projects" data-nav="projects">
-          <div class="img-wrap"><img src="images/modern-villa.jpg?v=2" alt="Modern Villa" loading="lazy" onerror="imgFallback(this)"></div>
+          <div class="img-wrap"><img src="images/modern-villa.jpg" alt="Modern Villa" loading="lazy" onerror="imgFallback(this)"></div>
           <div class="pcard-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></div>
           <div class="pcard-body"><div class="pcard-tag">Residential Villa</div><div class="pcard-title">Modern Villa</div><div class="pcard-loc">Indore</div></div>
         </a>
         <a class="pcard" href="#projects" data-nav="projects">
-          <div class="img-wrap"><img src="images/villa-slats.jpg?v=2" alt="The Slatwood House" loading="lazy" onerror="imgFallback(this)"></div>
+          <div class="img-wrap"><img src="images/villa-slats.jpg" alt="The Slatwood House" loading="lazy" onerror="imgFallback(this)"></div>
           <div class="pcard-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></div>
           <div class="pcard-body"><div class="pcard-tag">Residential</div><div class="pcard-title">The Slatwood House</div><div class="pcard-loc">Indore</div></div>
         </a>
@@ -999,9 +999,9 @@ body::after{content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;o
 
   /* ---------- DATA ---------- */
   var projects = [
-    {t:"Crown Pearl Residences", loc:"Rau, Indore", tag:"Commercial", img:"images/crown-pearl.jpg?v=2", cat:["commercial"]},
-    {t:"Modern Villa", loc:"Indore", tag:"Residential Villa", img:"images/modern-villa.jpg?v=2", cat:["residential"]},
-    {t:"The Slatwood House", loc:"Indore", tag:"Residential", img:"images/villa-slats.jpg?v=2", cat:["residential"]},
+    {t:"Crown Pearl Residences", loc:"Rau, Indore", tag:"Commercial", img:"images/crown-pearl.jpg", cat:["commercial"]},
+    {t:"Modern Villa", loc:"Indore", tag:"Residential Villa", img:"images/modern-villa.jpg", cat:["residential"]},
+    {t:"The Slatwood House", loc:"Indore", tag:"Residential", img:"images/villa-slats.jpg", cat:["residential"]},
     {t:"Cornerstone Villa", loc:"Indore", tag:"Residential · Turnkey", img:"images/villa-corner.jpg", cat:["residential","turnkey"]},
     {t:"House No. 27", loc:"Indore", tag:"Turnkey Home", img:"images/house-27.jpg", cat:["residential","turnkey"]},
     {t:"The Modern Elevation", loc:"Indore", tag:"Residential Villa", img:"images/villa-modern.jpg", cat:["residential"]}
@@ -1086,8 +1086,8 @@ body::after{content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;o
 <h3>Final Thoughts</h3>
 <p>Building a home is about much more than bricks and concrete — it's about creating a space your family will enjoy for years to come. Choosing the right construction approach can have a significant impact on quality, timelines, and your overall experience.</p>
 <p>At Patidar Infra, we offer comprehensive turnkey construction services in Indore, managing every stage of your project with transparency, quality, and attention to detail. From foundation to final finishing, our goal is to make home construction simple, efficient, and stress-free.</p>`},
-    {d:"May 10, 2026", t:"5 Facade Trends Defining Indore's New Villas", e:"From fluted wood and stone cladding to warm cove lighting — the looks shaping 2026 elevations.", img:"images/villa-slats.jpg?v=2"},
-    {d:"April 22, 2026", t:"Building on a Small Plot? Maximise Every Square Foot", e:"Smart layout tricks for 20x40 and 25x50 plots that make compact homes feel expansive.", img:"images/villa-modern.jpg?v=2", body:`
+    {d:"May 10, 2026", t:"5 Facade Trends Defining Indore's New Villas", e:"From fluted wood and stone cladding to warm cove lighting — the looks shaping 2026 elevations.", img:"images/villa-slats.jpg"},
+    {d:"April 22, 2026", t:"Building on a Small Plot? Maximise Every Square Foot", e:"Smart layout tricks for 20x40 and 25x50 plots that make compact homes feel expansive.", img:"images/villa-modern.jpg", body:`
 <p>Owning a small plot doesn't mean you have to compromise on comfort or functionality. With smart planning and the right construction approach, even a compact plot can be transformed into a spacious, modern, and practical home. The key lies in efficient design, thoughtful space planning, and quality execution.</p>
 <h3>Start with a Smart Floor Plan</h3>
 <p>Every square foot matters when building on a small plot. An open layout with fewer unnecessary walls creates a larger and more welcoming living space. Combining the living room, dining area, and kitchen can improve both functionality and natural light.</p>
@@ -1108,7 +1108,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;o
 <h3>Final Thoughts</h3>
 <p>A compact plot should be seen as an opportunity for smart design rather than a limitation. With thoughtful planning, efficient layouts, and quality construction, you can create a home that feels spacious, functional, and perfectly suited to your lifestyle.</p>
 <p>At Patidar Infra, we specialize in designing and constructing homes that maximize every square foot. Whether you're building on a 600 sq. ft., 1,000 sq. ft., or any compact plot in Indore, our team helps you achieve the perfect balance of design, functionality, and long-term value.</p>`},
-    {d:"April 5, 2026", t:"Vastu Meets Modern Design: Homes That Feel Right", e:"How to honour traditional Vastu principles without compromising on clean, contemporary architecture.", img:"images/modern-villa.jpg?v=2", body:`
+    {d:"April 5, 2026", t:"Vastu Meets Modern Design: Homes That Feel Right", e:"How to honour traditional Vastu principles without compromising on clean, contemporary architecture.", img:"images/modern-villa.jpg", body:`
 <p>For many homeowners in Indore, building a house is about more than just architecture — it's about creating a home that feels peaceful, functional, and welcoming. This is where Vastu principles and modern design can work together. Contrary to popular belief, you don't have to choose one over the other. With thoughtful planning, it's possible to build a home that respects traditional beliefs while embracing contemporary living.</p>
 <h3>Can Vastu and Modern Design Coexist?</h3>
 <p>Absolutely. Modern architecture focuses on functionality, natural light, ventilation, efficient space planning, and aesthetics. Vastu Shastra emphasizes the orientation and placement of spaces to create balance and harmony. When considered together during the design stage, both approaches can complement each other without compromising the home's appearance.</p>
@@ -1128,7 +1128,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;o
 <h3>Final Thoughts</h3>
 <p>A beautiful home is one that supports your lifestyle while giving you a sense of comfort and confidence. By combining Vastu principles with modern architectural design, you don't have to compromise between tradition and contemporary living.</p>
 <p>At Patidar Infra, we work closely with homeowners to design and construct homes that blend thoughtful planning, modern aesthetics, quality construction, and Vastu preferences wherever desired. The result is a home that is not only visually impressive but also feels right for the people who live in it.</p>`},
-    {d:"March 18, 2026", t:"Why On-Time Delivery Is a Design Decision", e:"Great planning — not luck — is what lets a build finish on schedule. Here's how we do it.", img:"images/crown-pearl.jpg?v=2", body:`
+    {d:"March 18, 2026", t:"Why On-Time Delivery Is a Design Decision", e:"Great planning — not luck — is what lets a build finish on schedule. Here's how we do it.", img:"images/crown-pearl.jpg", body:`
 <p>When people think about home construction, they often focus on architecture, materials, or interior finishes. However, one of the most overlooked factors behind a successful project is timely delivery. Completing a home on schedule isn't just about working faster — it's the result of careful planning, smart design decisions, and efficient project management.</p>
 <h3>Good Planning Starts Before Construction</h3>
 <p>The foundation of an on-time project is laid long before the first brick is placed. Finalizing architectural drawings, structural designs, material specifications, and construction schedules early helps prevent delays caused by last-minute changes or missing information.</p>
